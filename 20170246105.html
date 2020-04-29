@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20170246105武龙林</title>
+    <link rel="stylesheet" href="css/mdui.min.css" />
+    <script src="js/mdui.min.js"></script>
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body,
+      .div {
+        width: 65%;
+        height: 100%;
+        margin: 25px auto;
+      }
+      #box {
+        width: 75%;
+        float: left;
+      }
+      #show {
+        width: 15%;
+        height: 80%;
+        float: right;
+        margin-top: 100px;
+        background: rgb(52, 117, 216);
+      }
+      form fieldset {
+        border: none;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body class="mdui-theme-layout-dark mdui-theme-accent-blue">
+    <div class="mdui-container">
+      <div id="box">
+        <div class="mdui-typo-display-1">文章发布</div>
+        <form>
+          <div class="mdui-textfield mdui-textfield-floating-label">
+            <label class="mdui-textfield-label">标题</label>
+            <input
+              class="mdui-textfield-input"
+              type="text"
+              id="title"
+              name="title"
+              value=""
+              required
+            />
+            <div class="mdui-textfield-error">请输入标题</div>
+          </div>
+          <div class="mdui-textfield mdui-textfield-floating-label">
+            <label class="mdui-textfield-label">内容</label>
+            <textarea
+              class="mdui-textfield-input"
+              maxlength="140"
+              id="content"
+              name="content"
+              required
+            ></textarea>
+            <div class="mdui-textfield-error">请输入内容</div>
+          </div>
+          <button
+            class="mdui-btn mdui-ripple mdui-btn-raised mdui-ripple mdui-color-theme-accent"
+            id="article"
+          >
+            发布
+          </button>
+          <button
+            class="mdui-btn mdui-ripple mdui-btn-raised mdui-ripple mdui-color-theme-accent"
+            id="del"
+          >
+            清空
+          </button>
+          <button
+            class="mdui-btn mdui-ripple mdui-btn-raised mdui-ripple mdui-color-theme-accent"
+            id="drop"
+          >
+            删除
+          </button>
+        </form>
+      </div>
+      <div id="show">
+        <ol></ol>
+      </div>
+    </div>
+    <script>
+      var db = openDatabase("db", "1.0", "article info", "1024*1024");
+      db.transaction(function (tx) {
+        tx.executeSql(
+          "create table if not exists article(id integer primary key autoincrement,title text,content text)"
+        );
+        console.dir(tx);
+      });
+
+      var article = document.getElementById("article");
+      article.onclick = function () {
+        var title = document.getElementById("title").value;
+        var content = document.getElementById("content").value;
+        console.log(title);
+        db.transaction(function (tx) {
+          tx.executeSql(
+            "insert into article(title,content) values(?,?)",
+            [title, content],
+            function (tx) {
+              alert("发布成功！");
+              location.reload();
+            }
+          );
+        });
+      };
+
+      function show() {
+        db.transaction(function (tx) {
+          tx.executeSql("select * from article", [], function (tx, tr) {
+            var len = tr.rows.length;
+            for (var i = 0; i < len; i++) {
+              var all = tr.rows.item(i);
+              var title = all.title;
+              var content = all.content;
+              var ol = document.querySelector("#show ol");
+              var li = document.createElement("li");
+              ol.appendChild(li);
+              li.innerText = title;
+            }
+          });
+        });
+      }
+      show();
+
+      var clear = document.getElementById("del");
+      clear.onclick = function () {
+        db.transaction(function (tx) {
+          tx.executeSql("delete from article", [], function (tx, tr) {
+            var r = confirm("确定要清空数据吗?");
+            if (r) {
+              location.reload();
+            }
+          });
+        });
+      };
+
+      var dele = document.getElementById("drop");
+      dele.onclick = function () {
+        db.transaction(function (tx) {
+          tx.executeSql("drop table article", [], function (tx, tr) {
+            var r = confirm("确定要删除表吗?");
+            if (r) {
+              location.reload();
+            }
+          });
+        });
+      };
+    </script>
+  </body>
+</html>
