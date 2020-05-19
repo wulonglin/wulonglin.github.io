@@ -46,7 +46,7 @@
     <main id="app">
       <aside>
         <p id="describe">
-          皆 是 胡 言
+          可以乱讲话的地方
         </p>
       </aside>
       <p class="tip">共 {{count}} 条</p>
@@ -71,9 +71,13 @@
 
     </main>
     <footer>
-      <p class="center-text">
-        <b>无人问津 👉<a href="https://wulonglin.github.io/aboutme/" target="_blank">wulonglin</a></b>
-        <!-- <a href="https://wulonglin.github.io/aboutme/" target="_blank">博客</a> -->
+      <div class="load-ctn">
+        <button class="load-btn" v-on:click="loadMore" v-if="contents" v-cloak>
+          再来亿点
+        </button>
+        <p class="tip" v-else>Loading...</p>
+      </div>
+
     </footer>
   </body>
   <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
