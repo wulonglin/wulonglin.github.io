@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
     <link rel="apple-touch-icon"
@@ -51,9 +51,31 @@
   gtag('config', 'UA-145109859-1');
 </script>
 
+    <script src="/media/gridea-search/fuse.js"></script>
+    <script src="/media/gridea-search/ejs.min.js"></script>
+    <script src="/media/gridea-search/gridea-search.js"></script>
+    <script src="/media/gridea-search/result-template.ejs" type="text/ejs"></script>
+    <style>
+        .searching {
+            text-align: center;
+            padding: 55px 38%;
+            font-size: 15px;
+        }
+
+        .no-result {
+            text-align: center;
+            padding: 55px 38%;
+            font-size: 15px;
+        }
+    </style>
 </head>
 
-<body class="post-template-default single single-post postid-70 single-format-standard">
+<body>
+    <style>
+        .searched-keyword {
+            background-color: yellow;
+        }
+    </style>
     <div id="wrapper">
         		<header id="header" class="site-header">
 			<div class="site-branding">
@@ -159,88 +181,12 @@
 				</div>
 			</form>
 		</header>
-        <div id="content" class="container">
-            <div class="row">
-                <div class="col-md-8 site-main" id="archives">
-                    <div class="wow" id="archives-tags">
-                        <h3>标签云</h3>
-                        
-                        <a class="itags" href="https://wulonglin.github.io/tag/ios/">iOS</a>
-                        
-                        <a class="itags" href="https://wulonglin.github.io/tag/xI8dkWvK2B/">Others</a>
-                        
-                        <a class="itags" href="https://wulonglin.github.io/tag/Cy4o4oQiH/">Gridea</a>
-                        
-                    </div>
-
-                    <div class="wow" id="archives-content">
-                        <br>
-                        
-                        <div class="archive-title">
-
-                            <div class="archives">
-                                
-                                <h3>2020</h3>
-                                
-                                
-                                <div class="brick">
-                                    <a href="https://wulonglin.github.io/chinese-copywriting-guidelines/">
-                                        <span class="time">2020-03-02</span>  中文文案排版指北 </a>
-                                </div>
-                                
-                                
-                                
-                                <div class="brick">
-                                    <a href="https://wulonglin.github.io/notes/">
-                                        <span class="time">2020-02-24</span> 笔记 </a>
-                                </div>
-                                
-                                
-                                
-                                <div class="brick">
-                                    <a href="https://wulonglin.github.io/SMB/">
-                                        <span class="time">2020-02-23</span> iOS局域网播放PC端视频 </a>
-                                </div>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                <h3>2018</h3>
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                <div class="brick">
-                                    <a href="https://wulonglin.github.io/hello-gridea/">
-                                        <span class="time">2018-12-12</span> Hello Gridea </a>
-                                </div>
-                                
-                                
-                                
-                                <div class="brick">
-                                    <a href="https://wulonglin.github.io/books/">
-                                        <span class="time">2018-05-16</span> 编程书籍索引 </a>
-                                </div>
-                                
-                                
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <nav class="navigation pagination" role="navigation">
-                    
-                </nav>
-            </div><!-- #end row-->
-        </div><!-- #end container-->
-        <footer id="colophon" class="site-footer">
+        <div id="gridea-search-result">
+            <p class="searching">搜索中......</p>
+            <p class="no-result" style="display:none">未搜索到相关文章</p>
+        </div>
+    </div>
+    <footer id="colophon" class="site-footer">
 	<div class="container">
 		<div class="copyright">
 			 <span>©2017-2020 </span>|
@@ -271,7 +217,6 @@
 		</div>
 	</div><!-- .container -->
 </footer><!-- #colophon -->
-    </div>
     <script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
 
 <script
@@ -462,42 +407,6 @@
     };
   })(this));
 </script>
-    <script type="text/javascript">
-        //点击加载更多
-        jQuery(document).ready(function ($) {
-            //点击下一页的链接(即那个a标签)
-            $(' .next').click(function () {
-                $this = $(this);
-                $this.addClass('loading').text('正在努力加载'); //给a标签加载一个loading的class属性，用来添加加载效果
-                var href = $this.attr('href'); //获取下一页的链接地址
-                if (href != undefined) { //如果地址存在
-                    $.ajax({ //发起ajax请求
-                        url: href,
-                        //请求的地址就是下一页的链接
-                        type: 'get',
-                        //请求类型是get
-                        error: function (request) {
-                            //如果发生错误怎么处理
-                        },
-                        success: function (data) { //请求成功
-                            $this.removeClass('loading').text('点击查看更多'); //移除loading属性
-                            var $res = $(data).find(
-                                '.time-section '); //从数据中挑出文章数据，请根据实际情况更改
-                            $('.archives').append($res.fadeIn(
-                                500)); //将数据加载加进posts-loop的标签中。
-                            var newhref = $(data).find(' .next').attr('href'); //找出新的下一页链接
-                            if (newhref != undefined) {
-                                $('.next').attr('href', newhref);
-                            } else {
-                                $('.next').remove(); //如果没有下一页了，隐藏
-                            }
-                        }
-                    });
-                }
-                return false;
-            });
-        });
-    </script>
 </body>
 
 </html>
