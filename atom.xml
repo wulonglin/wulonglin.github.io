@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wulonglin.github.io</id>
     <title>wulonglin</title>
-    <updated>2020-05-20T04:50:27.374Z</updated>
+    <updated>2020-05-20T04:53:54.391Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wulonglin.github.io"/>
     <link rel="self" href="https://wulonglin.github.io/atom.xml"/>
@@ -11,12 +11,15 @@
     <icon>https://wulonglin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, wulonglin</rights>
     <entry>
-        <title type="html"><![CDATA[markdown-example]]></title>
+        <title type="html"><![CDATA[Markdown 测试]]></title>
         <id>https://wulonglin.github.io/markdown-example/</id>
         <link href="https://wulonglin.github.io/markdown-example/">
         </link>
         <updated>2020-05-20T04:31:29.000Z</updated>
+        <summary type="html"><![CDATA[<p>Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（英语：John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的 XHTML （或者 HTML ）文档”</p>
+]]></summary>
         <content type="html"><![CDATA[<p>Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（英语：John Gruber）。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的 XHTML （或者 HTML ）文档”</p>
+<!-- more -->
 <p>下面简单讲解一些关于 <code>Markdown</code> 的语法规则</p>
 <p>你也可以参考一下文档：</p>
 <ol>
