@@ -1,462 +1,94 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-
+<html lang="en">
 <head>
-    <link rel="apple-touch-icon"
-  href="https://cdn.jsdelivr.net/gh/wulonglin/wulonglin.github.io/images/avatar.png">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
-<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
-<meta HTTP-EQUIV="expires" CONTENT="0">
-<meta name="apple-mobile-web-app-title" content="wulonglin de blog">
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>wulonglin</title>
-
+<link rel="shortcut icon" href="https://wulonglin.github.io/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://wulonglin.github.io/media/css/tailwind.css">
 <link rel="stylesheet" href="https://wulonglin.github.io/styles/main.css">
-<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Noto+Sans+SC:300|Montserrat&display=swap"
-  rel="stylesheet">
-<link href="https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css" rel="stylesheet" />
-<!-- 下面是我自己的iconfont -->
-<link href="https://at.alicdn.com/t/font_1651848_9ur7s2zwgll.css" rel="stylesheet" />
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<script type='text/javascript' src='https://wulonglin.github.io/media/scripts/script.js'></script>
-<link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet" />
-<script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
-<script>
-  hljs.initHighlightingOnLoad();
-</script>
-<script>
-  wow = new WOW({
-    boxClass: 'wow',
-    animateClass: 'animated',
-    offset: 0,
-    mobile: true,
-    live: true
-  });
-  wow.init();
-</script>
+<link rel="alternate" type="application/atom+xml" title="wulonglin - Atom Feed" href="https://wulonglin.github.io/atom.xml">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145109859-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
 
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-  gtag('config', 'UA-145109859-1');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145109859-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-145109859-1');
+  </script>
+    
 
+  <meta name="description" content="無人問津😶" />
 </head>
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
 
-<body class="post-template-default single single-post postid-70 single-format-standard">
-    <div id="wrapper">
-        		<header id="header" class="site-header">
-			<div class="site-branding">
-				<h1 class="site-title"><a href="https://wulonglin.github.io" rel="home">wulonglin</a></h1>
-				<h2 class="site-description">無人問津😶</h2>
+    <div class="nav py-3 md:py-8 fixed w-full z-10 bg-gray-50 dark:bg-gray-700 transition-all duration-300" :class="{ 'scroll': scrolled }">
+  <div class="flex justify-end px-4">
+    <div class="w-8 h-8 flex justify-center items-center rounded-full md:hidden" @click="showMenu = !showMenu">
+      <i class="ri-close-line" v-show="showMenu"></i>
+      <i class="ri-menu-3-line" v-show="!showMenu"></i>
+    </div>
+  </div>
+  <nav class="max-w-4xl w-full mx-auto text-center flex flex-col md:flex-row justify-center md:block" :class="`${ showMenu ? 'block' : 'hidden' }`">
+    
+      <a href="/" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        Home
+      </a>
+    
+      <a href="/archives" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        Archives
+      </a>
+    
+      <a href="/tags" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        Tags
+      </a>
+    
+      <a href="/aboutme" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        AboutMe
+      </a>
+    
+      <a href="/friends" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        Friends
+      </a>
+    
+      <a href="https://wulonglin.github.io/bb.html" target="" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+        BB
+      </a>
+    
+    <a href="https://wulonglin.github.io/atom.xml" target="_blank" class="py-2 md:py-1 px-4 mx-4 inline-flex transition font-semibold rounded dark:hover:bg-gray-600 hover:bg-gray-200">
+      RSS
+    </a>
+  </nav>
+</div>
 
-			</div>
-			<nav id="nav-wrapper">
-				<div class="container">
-					<div class="nav-toggle">
-						<div class="bars">
-							<div class="bar"></div>
-							<div class="bar"></div>
-							<div class="bar"></div>
-						</div>
-					</div>
-					<div class="clear"></div>
-					<ul class="dove">
-						
+    <div class="max-w-4xl w-full mx-auto pt-32">
+      <div class="py-8 shadow-box bg-white dark:bg-gray-600 border-gray-300 rounded-none md:rounded-lg -mx-1 md:mx-0 md:px-0">
+        
+          <div class="px-8 pb-5 flex relative overflow-hidden">
+            
+            <div class="flex-1">
+              <a href="https://wulonglin.github.io/books/" class="text-gray-700 dark:text-gray-200 border-b-2 border-dotted border-gray-200 dark:border-gray-400 dark:hover:border-gray-200 hover:border-gray-600 transition-all duration-100">
+                编程书籍索引
+              </a>
+            </div>
+          </div>
+        
+      </div>
 
-						<li>
-
-							<a href="/"> Home</a></li>
-
-						
-
-						<li>
-
-							<a href="/archives"> Archives</a></li>
-
-						
-
-						<li>
-
-							<a href="/tags"> Tags</a></li>
-
-						
-
-						<li>
-
-							<a href="/aboutme"> AboutMe</a></li>
-
-						
-
-						<li>
-
-							<a href="/friends"> Friends</a></li>
-
-						
-
-						<li>
-
-							<a href="https://wulonglin.github.io/bb.html"> BB</a></li>
-
-						
-
-					</ul>
-					</li>
-
-					</ul>
-				</div>
-			</nav>
-
-			<div class="jingge">
-				
-				
-				<a href="https://wulonglin.github.io/atom.xml" target="_blank"><i class="iconfont icon-rss"></i></a>
-				
-				
-				
-				<a href="https://twitter.com/wulonglin/" target="_blank"><i class="iconfont icon-twitter"></i></a>
-				
-				
-				
-				<a href="https://github.com/wulonglin/" target="_blank"><i class="iconfont icon-github"></i></a>
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				<a href="https://t.me/awhbdxdgh" target="_blank"><i class="iconfont icon-telegram"></i></a>
-				
-				
-				
-				
-				
-				<a href="https://www.instagram.com/altzosz/" target="_blank"><i class="iconfont icon-instagram"></i></a>
-				
-				
-				
-				
-				
-				
-				
-				
-			</div>
-			<form id="gridea-search-form" data-update="1611309312279" action="/search/index.html">
-				<div class="search-box">
-					<input class="search-txt" name="q" placeholder="Type to search" />
-					<a class="search-btn">
-						<i class="iconfont icon-search1" action="/search/index.html"></i>
-					</a>
-				</div>
-			</form>
-		</header>
-        <div id="content" class="container">
-            <div class="row">
-                <div class="col-md-8 site-main" id="archives">
-                    <div class="wow" id="archives-tags">
-                        <h3>标签云</h3>
-                        
-                        <a class="itags" href="https://wulonglin.github.io/tag/xI8dkWvK2B/">Others</a>
-                        
-                    </div>
-
-                    <div class="wow" id="archives-content">
-                        <br>
-                        
-                        <div class="archive-title">
-
-                            <div class="archives">
-                                
-                                <h3>2018</h3>
-                                
-                                
-                                <div class="brick">
-                                    <a href="https://wulonglin.github.io/books/">
-                                        <span class="time">2018-05-16</span> 编程书籍索引 </a>
-                                </div>
-                                
-                                
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <nav class="navigation pagination" role="navigation">
-                    
-                </nav>
-            </div><!-- #end row-->
-        </div><!-- #end container-->
-        <footer id="colophon" class="site-footer">
-	<div class="container">
-		<div class="copyright">
-			 <span>©2017-2021 </span>|
+      
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+   <span>©2017-2021 </span>|
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
             <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-			<!-- <b>Crafted with 💔 by <a href="https://chiperman.github.io/about/" target="_blank">chiperman</a></b>
-			<br>
-			<b>Eleven forever.</b>
-			<br> -->
-			<span class="runtime">
-				本站已经运行<script type="text/javascript">
-					var urodz = new Date("06/04/2017");
-					var now = new Date();
-					var ile = now.getTime() - urodz.getTime();
-					var dni = Math.floor(ile / (1000 * 60 * 60 * 24));
-					document.write(+dni)
-				</script>天
-				<br>
-			</span>
-			<b>Theme: </b>
-			<a href="https://github.com/chiperman/gridea-theme-xiaox" target="_blank" title="Pan">
-				<span><b>Pan - XiaoX</b></span>
-			</a>
-			<b>. Powered by </b>
-			<a href="https://gridea.dev/" target="_blank" title="Gridea">
-				<span><b>Gridea</b></span>
-			</a>
-		</div>
-	</div><!-- .container -->
-</footer><!-- #colophon -->
+</footer>
     </div>
-    <script src="https://cdn.bootcss.com/fitvids/1.2.0/jquery.fitvids.min.js"></script>
-
-<script
-  src="https://cdn.jsdelivr.net/gh/wulonglin/wulonglin.github.io/media/scripts/marlin-scripts.js">
-</script>
-
-<script src="//tokinx.github.io/lately/lately.min.js"></script>
-<script>
-  jQuery(document).ready(function () {
-    $.lately({
-      'target': '.lately-a,.lately-b,.lately-c'
-    })
-  });
-</script>
-<style type="text/css">
-  /* 一键到顶部 */
-  a.back_to_top {
-    text-decoration: none;
-    position: fixed;
-    bottom: 65px;
-    right: 30px;
-    background: #f0f0f0;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    line-height: 36px;
-    font-size: 18px;
-    text-align: center;
-    transition-duration: .5s;
-    transition-propety: background-color;
-    display: none;
-  }
-
-  a.back_to_top span {
-    color: #888;
-  }
-
-  a.back_to_top:hover {
-    cursor: pointer;
-    background: #dfdfdf;
-  }
-
-  a.back_to_top:hover span {
-    color: #555;
-  }
-
-  @media print,
-  screen and (max-width: 580px) {
-    .back_to_top {
-      display: none !important;
-    }
-  }
-
-  /* 一键到底部 */
-
-  a.down_to_bottom {
-    text-decoration: none;
-    position: fixed;
-    bottom: 15px;
-    right: 30px;
-    background: #f0f0f0;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    line-height: 36px;
-    font-size: 18px;
-    text-align: center;
-    transition-duration: .5s;
-    transition-propety: background-color;
-    display: none;
-  }
-
-  a.down_to_bottom span {
-    color: #888;
-  }
-
-  a.down_to_bottom:hover {
-    cursor: pointer;
-    background: #dfdfdf;
-  }
-
-  a.down_to_bottom:hover span {
-    color: #555;
-  }
-
-  @media print,
-  screen and (max-width: 580px) {
-    .down_to_bottom {
-      display: none !important;
-    }
-  }
-</style>
-
-
-<a id="back_to_top" href="#" class="back_to_top"><span><i class="iconfont icon-xiangshang"></i></span>
-</a>
-
-<a id="down_to_bottom" href="#" class="down_to_bottom"><span><i class="iconfont icon-xiangxia"></i></span>
-</a>
-
-<script src="//instant.page/3.0.0" type="module" defer
-  integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
-
-<script>
-  function getScrollTop() {
-    var scrollTop = 0,
-      bodyScrollTop = 0,
-      documentScrollTop = 0;
-    if (document.body) {
-      bodyScrollTop = document.body.scrollTop;
-    }
-    if (document.documentElement) {
-      documentScrollTop = document.documentElement.scrollTop;
-    }
-    scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
-    return scrollTop;
-  };
-
-  function getScrollHeight() {
-    var scrollHeight = 0,
-      bodyScrollHeight = 0,
-      documentScrollHeight = 0;
-    if (document.body) {
-      bSH = document.body.scrollHeight;
-    }
-    if (document.documentElement) {
-      dSH = document.documentElement.scrollHeight;
-    }
-    scrollHeight = (bSH - dSH > 0) ? bSH : dSH;
-    return scrollHeight;
-  };
-
-  function getWindowHeight() {
-    var windowHeight = 0;
-    if (document.compatMode == "CSS1Compat") {
-      windowHeight = document.documentElement.clientHeight;
-    } else {
-      windowHeight = document.body.clientHeight;
-    }
-    return windowHeight;
-  };
-
-  $(document).ready((function (_this) {
-    return function () {
-      var bt;
-      bt = $('#back_to_top');
-      if ($(document).width() > 480) {
-        $(window).scroll(function () {
-          var st;
-          st = $(window).scrollTop();
-          if (st > 30) {
-            return bt.css('display', 'block');
-          } else {
-            return bt.css('display', 'none');
-          }
-        });
-        return bt.click(function () {
-          $('body,html').animate({
-            scrollTop: 0
-          }, 800);
-          return false;
-        });
-      }
-    };
-  })(this));
-
-  $(document).ready((function (_this) {
-    return function () {
-      var bt;
-      bt = $('#down_to_bottom');
-      if ($(document).width() > 480) {
-        $(window).scroll(function () {
-          var st;
-          st = $(window).scrollTop();
-          if (getScrollTop() + getWindowHeight() == getScrollHeight()) {
-            return bt.css('display', 'none');
-          } else {
-            return bt.css('display', 'block');
-          }
-        });
-        return bt.click(function () {
-          $('body,html').animate({
-            scrollTop: $('body,html')[0].scrollHeight
-          }, 800);
-          return false;
-        });
-      }
-    };
-  })(this));
-</script>
-    <script type="text/javascript">
-        //点击加载更多
-        jQuery(document).ready(function ($) {
-            //点击下一页的链接(即那个a标签)
-            $(' .next').click(function () {
-                $this = $(this);
-                $this.addClass('loading').text('正在努力加载'); //给a标签加载一个loading的class属性，用来添加加载效果
-                var href = $this.attr('href'); //获取下一页的链接地址
-                if (href != undefined) { //如果地址存在
-                    $.ajax({ //发起ajax请求
-                        url: href,
-                        //请求的地址就是下一页的链接
-                        type: 'get',
-                        //请求类型是get
-                        error: function (request) {
-                            //如果发生错误怎么处理
-                        },
-                        success: function (data) { //请求成功
-                            $this.removeClass('loading').text('点击查看更多'); //移除loading属性
-                            var $res = $(data).find(
-                                '.time-section '); //从数据中挑出文章数据，请根据实际情况更改
-                            $('.archives').append($res.fadeIn(
-                                500)); //将数据加载加进posts-loop的标签中。
-                            var newhref = $(data).find(' .next').attr('href'); //找出新的下一页链接
-                            if (newhref != undefined) {
-                                $('.next').attr('href', newhref);
-                            } else {
-                                $('.next').remove(); //如果没有下一页了，隐藏
-                            }
-                        }
-                    });
-                }
-                return false;
-            });
-        });
-    </script>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://wulonglin.github.io/media/scripts/main.js"></script>
 </body>
-
 </html>
