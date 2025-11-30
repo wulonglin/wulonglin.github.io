@@ -173,6 +173,35 @@
     
     <main>
         <section class="tip-section">
+            <h2 class="lang-zh active">视频教程</h2>
+            <h2 class="lang-en">Video Tutorials</h2>
+            <ul>
+                <li class="lang-zh active"><a href="https://b23.tv/vUv9lgI" target="_blank" rel="noopener" style="color:#000; text-decoration: underline;">上岛记控制中心进阶使用教程，含四种触发方式-哔哩哔哩</a></li>
+                <li class="lang-en"><a href="https://b23.tv/vUv9lgI" target="_blank" rel="noopener" style="color:#000; text-decoration: underline;">Advanced Control Center tutorial with four trigger methods - Bilibili</a></li>
+                <li class="lang-zh active"><a href="https://b23.tv/qjS6WdQ" target="_blank" rel="noopener" style="color:#000; text-decoration: underline;">上岛记初次安装使用教程来啦-哔哩哔哩</a></li>
+                <li class="lang-en"><a href="https://b23.tv/qjS6WdQ" target="_blank" rel="noopener" style="color:#000; text-decoration: underline;">First-time installation tutorial - Bilibili</a></li>
+            </ul>
+        </section>
+
+        <section class="tip-section">
+            <h2 class="lang-zh active">自动提取取件码教程</h2>
+            <h2 class="lang-en">Auto Extract Pickup Code</h2>
+            <ol class="step-list lang-zh active">
+                <li>在「设置」页点击「添加快捷指令」安装「自动上岛记」</li>
+                <li>选择触发方式：操作按钮 / 轻点背面 / 辅助触控</li>
+                <li>在快递短信或取件页面触发，自动提取取件码（支持三段式、两段式、5-8位纯数字、字母前缀）</li>
+                <li>识别成功自动写入「历史」，可一键发送到实时活动与灵动岛</li>
+                <li>遇到长运单号、隐私号或被遮掩场景，系统会自动过滤干扰以提升准确性</li>
+            </ol>
+            <ol class="step-list lang-en">
+                <li>In “Settings”, tap “Add Shortcut” to install “Auto PinToIsland”</li>
+                <li>Choose a trigger: Action Button / Back Tap / AssistiveTouch</li>
+                <li>On courier SMS or pickup pages, trigger to auto-extract the code (supports tri-segment, two-segment, 5–8 digit numeric, alphanumeric prefix)</li>
+                <li>Successful recognition is saved to History; send to Live Activities/Dynamic Island with one tap</li>
+                <li>Long waybill numbers, privacy numbers, or masked cases are auto-filtered to improve accuracy</li>
+            </ol>
+        </section>
+        <section class="tip-section">
             <h2 class="lang-zh active">快速上手</h2>
             <h2 class="lang-en">Quick Start</h2>
             
@@ -417,9 +446,12 @@
         }
         
         // 检测浏览器语言偏好
+        document.querySelectorAll('.lang-en.active').forEach(el => el.classList.remove('active'));
         const userLang = navigator.language || navigator.userLanguage;
         if (userLang && userLang.startsWith('en')) {
             setLanguage('en');
+        } else {
+            setLanguage('zh');
         }
     </script>
 </body>
