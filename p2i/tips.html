@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用技巧 - 上岛记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: #000;
+        }
+        
+        h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 20px 0 10px;
+            color: #000;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #444;
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #444;
+        }
+        
+        .tip-section {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .tip-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .highlight-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #000;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #000;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #000;
+            text-decoration: none;
+        }
+        
+        .lang-switch {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            color: #666;
+            margin-left: 10px;
+        }
+        
+        .lang-btn.active {
+            color: #000;
+            font-weight: 600;
+        }
+        
+        .lang-zh,
+        .lang-en {
+            display: none;
+        }
+        
+        .lang-zh.active,
+        .lang-en.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link lang-zh active">← 返回</a>
+    <a href="index.html" class="back-link lang-en">← Back</a>
+    
+    <div class="lang-switch">
+        <button id="btn-zh" class="lang-btn active">中文</button>
+        <button id="btn-en" class="lang-btn">English</button>
+    </div>
+    
+    <header>
+        <h1 class="lang-zh active">使用技巧</h1>
+        <h1 class="lang-en">Pro Tips</h1>
+        <p class="lang-zh active">参考应用功能的实用技巧与最佳实践</p>
+        <p class="lang-en">Practical tips and best practices based on the app’s features</p>
+    </header>
+    
+    <main>
+        <section class="tip-section">
+            <h2 class="lang-zh active">视频教程</h2>
+            <h2 class="lang-en">Video Tutorials</h2>
+            <ul>
+                <li class="lang-zh active"><a href="https://b23.tv/vUv9lgI" target="_blank" rel="noopener" style="color:#000; text-decoration: underline;">上岛记控制中心进阶使用教程，含四种触发方式-哔哩哔哩</a></li>
+                <li class="lang-en"><a href="https://b23.tv/vUv9lgI" target="_blank" rel="noopener" style="color:#000; text-decoration: underline;">Advanced Control Center tutorial with four trigger methods - Bilibili</a></li>
+                <li class="lang-zh active"><a href="https://b23.tv/qjS6WdQ" target="_blank" rel="noopener" style="color:#000; text-decoration: underline;">上岛记初次安装使用教程来啦-哔哩哔哩</a></li>
+                <li class="lang-en"><a href="https://b23.tv/qjS6WdQ" target="_blank" rel="noopener" style="color:#000; text-decoration: underline;">First-time installation tutorial - Bilibili</a></li>
+            </ul>
+        </section>
+
+        <section class="tip-section">
+            <h2 class="lang-zh active">自动提取取件码教程</h2>
+            <h2 class="lang-en">Auto Extract Pickup Code</h2>
+            <ol class="step-list lang-zh active">
+                <li>在「设置」页点击「添加快捷指令」安装「自动上岛记」</li>
+                <li>选择触发方式：操作按钮 / 轻点背面 / 辅助触控</li>
+                <li>在快递短信或取件页面触发，自动提取取件码（支持三段式、两段式、5-8位纯数字、字母前缀）</li>
+                <li>识别成功自动写入「历史」，可一键发送到实时活动与灵动岛</li>
+                <li>遇到长运单号、隐私号或被遮掩场景，系统会自动过滤干扰以提升准确性</li>
+            </ol>
+            <ol class="step-list lang-en">
+                <li>In “Settings”, tap “Add Shortcut” to install “Auto PinToIsland”</li>
+                <li>Choose a trigger: Action Button / Back Tap / AssistiveTouch</li>
+                <li>On courier SMS or pickup pages, trigger to auto-extract the code (supports tri-segment, two-segment, 5–8 digit numeric, alphanumeric prefix)</li>
+                <li>Successful recognition is saved to History; send to Live Activities/Dynamic Island with one tap</li>
+                <li>Long waybill numbers, privacy numbers, or masked cases are auto-filtered to improve accuracy</li>
+            </ol>
+        </section>
+        <section class="tip-section">
+            <h2 class="lang-zh active">快速上手</h2>
+            <h2 class="lang-en">Quick Start</h2>
+            
+            <h3 class="lang-zh active">添加「自动上岛记」快捷指令</h3>
+            <h3 class="lang-en">Add the “Auto PinToIsland” Shortcut</h3>
+            
+            <ol class="step-list lang-zh active">
+                <li>在应用的「设置」中点击「添加快捷指令」跳转到快捷指令 App</li>
+                <li>完成添加后，设置触发方式：</li>
+                <li>iPhone 15 Pro 及以上：系统设置 → 操作按钮 → 快捷指令 → 选取「自动上岛记」</li>
+                <li>其他机型：系统设置 → 辅助功能 → 触控 → 轻点背面 → 轻点两下选择「自动上岛记」</li>
+                <li>或小白点：系统设置 → 辅助功能 → 触控 → 辅助触控 → 自定操作 → 轻点一下选择「自动上岛记」</li>
+            </ol>
+            
+            <ol class="step-list lang-en active">
+                <li>In Settings, tap “Add Shortcut” to open Shortcuts app</li>
+                <li>After adding, set a trigger method:</li>
+                <li>iPhone 15 Pro and later: Settings → Action Button → Shortcuts → select “Auto PinToIsland”</li>
+                <li>Other models: Settings → Accessibility → Touch → Back Tap → Double Tap → choose “Auto PinToIsland”</li>
+                <li>Or AssistiveTouch: Settings → Accessibility → Touch → AssistiveTouch → Custom Actions → Single-Tap → choose “Auto PinToIsland”</li>
+            </ol>
+            
+            <div class="highlight-box lang-zh active">
+                <strong>提示：</strong>识别由系统快捷指令本地完成，App 仅接收结果，无需网络，隐私安全。
+            </div>
+            
+            <div class="highlight-box lang-en active">
+                <strong>Note:</strong> Recognition runs locally via Shortcuts; the app only receives results, no network required, privacy-safe.
+            </div>
+            
+            <div class="highlight-box">
+                <a href="https://www.icloud.com/shortcuts/4a8afbc142594d5b83be8e29bd48ffd4" target="_blank" rel="noopener" style="color:#000; text-decoration: underline;">添加快捷指令 / Add Shortcut</a>
+            </div>
+        </section>
+        
+        <section class="tip-section">
+            <h2 class="lang-zh active">开始使用</h2>
+            <h2 class="lang-en">Using the App</h2>
+            
+            <h3 class="lang-zh active">触发识别并保存到历史</h3>
+            <h3 class="lang-en">Trigger Recognition and Save to History</h3>
+            
+            <ol class="step-list lang-zh active">
+                <li>在餐饮、排队、快递或票券页面，按压操作按钮/轻点背面/点小白点触发</li>
+                <li>成功识别后自动写入「历史」，可推送到实时活动与灵动岛</li>
+                <li>票券支持识别日期、影厅及座位；取餐/排队/快递支持识别号码</li>
+                <li>点击历史项可查看截图或二维码，支持「查看原图」</li>
+            </ol>
+            
+            <ol class="step-list lang-en active">
+                <li>On food/queue/courier/ticket screens, trigger via Action Button/Back Tap/AssistiveTouch</li>
+                <li>Recognized results are saved into History and can be sent to Live Activities/Dynamic Island</li>
+                <li>Tickets support date, hall and seats; food/queue/courier support numbers</li>
+                <li>Tap a history item to view the screenshot or QR, with “View Original”</li>
+            </ol>
+        </section>
+        
+        <section class="tip-section">
+            <h2 class="lang-zh active">历史页技巧</h2>
+            <h2 class="lang-en">History Tips</h2>
+            
+            <h3 class="lang-zh active">筛选与分组</h3>
+            <h3 class="lang-en">Filtering and Grouping</h3>
+            <ul>
+                <li class="lang-zh active">顶部可按「全部/餐饮/快递/票券/排队」筛选记录</li>
+                <li class="lang-en active">Filter by “All/Food/Courier/Tickets/Queue” at the top</li>
+                <li class="lang-zh active">自动按「今天/昨天/日期」分组，便于查找</li>
+                <li class="lang-en active">Auto group by Today/Yesterday/Date for easier browsing</li>
+            </ul>
+            
+            <h3 class="lang-zh active">手势操作</h3>
+            <h3 class="lang-en">Gestures</h3>
+            <ul>
+                <li class="lang-zh active">右滑「发送到活动」，同步到灵动岛与锁屏</li>
+                <li class="lang-en active">Swipe right to “Send to Activity” for Dynamic Island/Lock Screen</li>
+                <li class="lang-zh active">左滑「删除」，从历史移除并可同时关闭对应活动</li>
+                <li class="lang-en active">Swipe left to delete; related Live Activity can also end</li>
+                <li class="lang-zh active">点击记录可打开预览卡片，大图或二维码独立查看</li>
+                <li class="lang-en active">Tap to open preview sheet for full image or QR view</li>
+            </ul>
+            
+            <h3 class="lang-zh active">票券展示</h3>
+            <h3 class="lang-en">Tickets Display</h3>
+            <ul>
+                <li class="lang-zh active">标题自动合并座位：如「5排5·6座」</li>
+                <li class="lang-en active">Title merges seats, e.g., “Row 5 Seats 5·6”</li>
+                <li class="lang-zh active">显示日期与影厅；自提/券码场景显示有效期</li>
+                <li class="lang-en active">Shows date and hall; voucher/self-pick shows expiry</li>
+            </ul>
+        </section>
+        
+        <section class="tip-section">
+            <h2 class="lang-zh active">笔记与设置</h2>
+            <h2 class="lang-en">Notes and Settings</h2>
+            
+            <h3 class="lang-zh active">上岛笔记</h3>
+            <h3 class="lang-en">Island Notes</h3>
+            <ul>
+                <li class="lang-zh active">在「笔记」页输入 20 字内内容，支持复制、编辑、删除</li>
+                <li class="lang-en active">Enter up to 20 chars in “Notes”; supports copy, edit, delete</li>
+                <li class="lang-zh active">可发送到实时活动，同步到 Apple Watch</li>
+                <li class="lang-en active">Send to Live Activities and sync to Apple Watch</li>
+            </ul>
+            
+            <h3 class="lang-zh active">实时活动与通知</h3>
+            <h3 class="lang-en">Live Activities and Notifications</h3>
+            <ul>
+                <li class="lang-zh active">可启用「自动关闭取餐活动」、显示/隐藏锁屏关闭按钮</li>
+                <li class="lang-en active">Enable auto-close for meal activities, show/hide lock screen buttons</li>
+                <li class="lang-zh active">「识别成功推送通知」可开关，默认开启</li>
+                <li class="lang-en active">Toggle “Recognition Success” notifications; enabled by default</li>
+            </ul>
+            
+            <h3 class="lang-zh active">二维码设置</h3>
+            <h3 class="lang-en">QR Settings</h3>
+            <ul>
+                <li class="lang-zh active">支持「自动裁切二维码」，不便识别时可点击查看原图</li>
+                <li class="lang-en active">Enable “Auto Crop QR”; use “View Original” when recognition is hard</li>
+                <li class="lang-zh active">可一键清空历史记录（不可恢复）</li>
+                <li class="lang-en active">Clear all history with one tap (irreversible)</li>
+            </ul>
+        </section>
+
+        <section class="tip-section">
+            <h2 class="lang-zh active">Apple Watch</h2>
+            <h2 class="lang-en">Apple Watch</h2>
+            <ul>
+                <li class="lang-zh active">查看票券详情（场次、影厅、座位），实时活动自动同步</li>
+                <li class="lang-en active">View ticket details (date, hall, seats); Live Activities auto-sync</li>
+                <li class="lang-zh active">支持二维码在手表显示；抬腕即可取票/取餐</li>
+                <li class="lang-en active">QR shows on watch; raise wrist to access tickets/pickups</li>
+            </ul>
+        </section>
+
+        <section class="tip-section">
+            <h2 class="lang-zh active">识别优化</h2>
+            <h2 class="lang-en">Recognition Optimization</h2>
+            <ul>
+                <li class="lang-zh active">尽量截屏或使用官方页面展示的号码，避免被遮挡</li>
+                <li class="lang-en active">Prefer screenshots or official pages with clear numbers</li>
+                <li class="lang-zh active">票券支持识别「有效期至」「影厅」「座位」等关键词</li>
+                <li class="lang-en active">Tickets detect “Expiry”, “Hall”, and seat patterns</li>
+                <li class="lang-zh active">若灵动岛/状态栏数字干扰，重试或切换页面再触发</li>
+                <li class="lang-en active">If status bar numbers interfere, retry or switch screen then trigger</li>
+            </ul>
+        </section>
+        
+        <section class="tip-section">
+            <h2 class="lang-zh active">隐私与安全</h2>
+            <h2 class="lang-en">Privacy and Safety</h2>
+            <ul>
+                <li class="lang-zh active">识别与截屏均由系统快捷指令本地完成，App 无网络依赖</li>
+                <li class="lang-en active">Recognition and screenshots via Shortcuts locally; no network required</li>
+                <li class="lang-zh active">应用不采集个人信息；历史可随时删除或清空</li>
+                <li class="lang-en active">No personal data collection; delete or clear history anytime</li>
+            </ul>
+        </section>
+        
+        <section class="tip-section">
+            <h2 class="lang-zh active">常见问题解决</h2>
+            <h2 class="lang-en">Troubleshooting</h2>
+            
+            <h3 class="lang-zh active">识别不准确</h3>
+            <h3 class="lang-en">Inaccurate Recognition</h3>
+            <ul>
+                <li class="lang-zh active">尝试更换页面或滚动，让号码更接近屏幕中央</li>
+                <li class="lang-en active">Switch screens or scroll so the code sits near the center</li>
+                <li class="lang-zh active">票券请确保包含日期/影厅/座位等字段</li>
+                <li class="lang-en active">Tickets should include date/hall/seat fields clearly</li>
+                <li class="lang-zh active">必要时点击「查看原图」关闭裁切后再试</li>
+                <li class="lang-en active">If needed, use “View Original” and retry without cropping</li>
+            </ul>
+            
+            <h3 class="lang-zh active">Apple Watch 同步问题</h3>
+            <h3 class="lang-en">Apple Watch Sync Issues</h3>
+            <ul>
+                <li class="lang-zh active">确保手表与手机距离不远</li>
+                <li class="lang-en active">Ensure watch and phone are within close range</li>
+                <li class="lang-zh active">检查手表蓝牙连接</li>
+                <li class="lang-en active">Check Bluetooth connection on watch</li>
+                <li class="lang-zh active">在手表上重新启动应用</li>
+                <li class="lang-en active">Restart the app on the watch</li>
+            </ul>
+            
+            <h3 class="lang-zh active">灵动岛不显示</h3>
+            <h3 class="lang-en">Dynamic Island Not Showing</h3>
+            <ul>
+                <li class="lang-zh active">确认 iPhone 型号支持灵动岛</li>
+                <li class="lang-en active">Confirm iPhone model supports Dynamic Island</li>
+                <li class="lang-zh active">检查灵动岛是否被其他应用占用</li>
+                <li class="lang-en active">Check if Dynamic Island is occupied by other apps</li>
+                <li class="lang-zh active">重启设备后重试</li>
+                <li class="lang-en active">Restart device and try again</li>
+                <li class="lang-zh active">检查是否启用实时活动：设置页「实时活动」开关需打开</li>
+                <li class="lang-en active">Ensure Live Activities are enabled in Settings</li>
+            </ul>
+            
+            <h3 class="lang-zh active">快捷指令未触发</h3>
+            <h3 class="lang-en">Shortcut Not Triggering</h3>
+            <ul>
+                <li class="lang-zh active">在「设置」中重新点击「添加快捷指令」并确认触发方式</li>
+                <li class="lang-en active">Tap “Add Shortcut” in Settings again and reconfigure triggers</li>
+                <li class="lang-zh active">iPhone 15 Pro 检查操作按钮绑定，其他机型检查轻点背面/小白点设置</li>
+                <li class="lang-en active">Check Action Button (15 Pro) or Back Tap/AssistiveTouch (others)</li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <p class="lang-zh active">更多帮助：wull@live.cn ｜ 使用说明与更新：应用内「设置」</p>
+        <p class="lang-en">More help: wull@live.cn ｜ See “Settings” in app for guide/updates</p>
+    </footer>
+    
+    <script>
+        // 语言切换功能
+        const btnZh = document.getElementById('btn-zh');
+        const btnEn = document.getElementById('btn-en');
+        
+        btnZh.addEventListener('click', function() {
+            setLanguage('zh');
+        });
+        
+        btnEn.addEventListener('click', function() {
+            setLanguage('en');
+        });
+        
+        function setLanguage(lang) {
+            // 更新按钮状态
+            btnZh.classList.toggle('active', lang === 'zh');
+            btnEn.classList.toggle('active', lang === 'en');
+            
+            // 更新内容显示
+            document.querySelectorAll('.lang-zh, .lang-en').forEach(el => {
+                el.classList.toggle('active', el.classList.contains(`lang-${lang}`));
+            });
+            
+            // 更新HTML语言属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            
+            // 更新页面标题
+            document.title = lang === 'zh' ? '使用技巧 - 上岛记' : 'Pro Tips - PinToIsland';
+        }
+        
+        // 检测浏览器语言偏好
+        document.querySelectorAll('.lang-en.active').forEach(el => el.classList.remove('active'));
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang && userLang.startsWith('en')) {
+            setLanguage('en');
+        } else {
+            setLanguage('zh');
+        }
+    </script>
+</body>
+</html>

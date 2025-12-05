@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上岛记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            background-color: #f8f8f8;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .app-icon-placeholder {
+            font-size: 36px;
+            font-weight: 700;
+            color: #000;
+        }
+        
+        .description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .link {
+            display: block;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+        
+        .link:hover {
+            background-color: #f8f8f8;
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+        
+        .version {
+            font-size: 14px;
+            color: #999;
+            margin-top: 10px;
+        }
+        
+        .lang-switch {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            color: #666;
+            margin-left: 10px;
+        }
+        
+        .lang-btn.active {
+            color: #000;
+            font-weight: 600;
+        }
+        
+        .lang-zh,
+        .lang-en {
+            display: none;
+        }
+        
+        .lang-zh.active,
+        .lang-en.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch">
+        <button id="btn-zh" class="lang-btn active">中文</button>
+        <button id="btn-en" class="lang-btn">English</button>
+    </div>
+    
+    <header>
+        <h1 class="lang-zh active">上岛记</h1>
+        <h1 class="lang-en">Pin2Island</h1>
+        <div class="version lang-zh active">版本 1.0.0</div>
+        <div class="version lang-en">Version 1.0.0</div>
+    </header>
+    
+    <main>
+        <p class="description lang-zh active">取餐、取件、取号、笔记，通通上岛记</p>
+        <p class="description lang-en">Pickup, Delivery, Queue, Notes - All on Dynamic Island</p>
+        
+        <div class="links">
+            <a href="privacy.html" class="link lang-zh active">隐私政策</a>
+            <a href="privacy.html" class="link lang-en">Privacy Policy</a>
+            <a href="support.html" class="link lang-zh active">开发者支持</a>
+            <a href="support.html" class="link lang-en">Developer Support</a>
+        </div>
+    </main>
+    
+    <footer>
+        <p class="lang-zh active">© <span id="current-year"></span> 上岛记</p>
+        <p class="lang-en">© <span id="current-year"></span> Pin2Island</p>
+    </footer>
+    
+    <script>
+        // 设置当前年份
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // 语言切换功能
+        const btnZh = document.getElementById('btn-zh');
+        const btnEn = document.getElementById('btn-en');
+        
+        btnZh.addEventListener('click', function() {
+            setLanguage('zh');
+        });
+        
+        btnEn.addEventListener('click', function() {
+            setLanguage('en');
+        });
+        
+        function setLanguage(lang) {
+            // 更新按钮状态
+            btnZh.classList.toggle('active', lang === 'zh');
+            btnEn.classList.toggle('active', lang === 'en');
+            
+            // 更新内容显示
+            document.querySelectorAll('.lang-zh, .lang-en').forEach(el => {
+                el.classList.toggle('active', el.classList.contains(`lang-${lang}`));
+            });
+            
+            // 更新HTML语言属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            
+            // 更新页面标题
+            document.title = lang === 'zh' ? '上岛记' : 'Pin2Island';
+        }
+        
+        // 检测浏览器语言偏好
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang && userLang.startsWith('en')) {
+            setLanguage('en');
+        }
+    </script>
+</body>
+</html>

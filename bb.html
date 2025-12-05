@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>胡言乱语</title>
+    <!-- <link rel="shortcut icon" href="./favicon.ico" /> -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"
+    />
+    <link
+      href="https://fonts.loli.net/css?family=Noto+Serif+SC:200,300,900&display=swap&subset=chinese-simplified"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://cdn.jsdelivr.net/gh/wulonglin/wulonglin.github.io/images/avatar.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="daibor" />
+    <meta charset="utf-8" />
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="index,follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="verify" content="index,follow" />
+    <meta name="apple-mobile-web-app-title" content="胡言乱语" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+  </head>
+
+  <body>
+    <header id="header">
+      <div class="logo">
+        <h1>胡 言 乱 语</h1>
+        <span class="logo__cursor"></span>
+      </div>
+    </header>
+    <main id="app">
+      <aside>
+        <p id="describe">
+          皆 是 胡 言
+        </p>
+      </aside>
+      <p class="tip">共 {{count}} 条</p>
+      <section
+        class="item"
+        v-bind:class="'type-'+item.attributes.type"
+        v-for="item in contents"
+        v-cloak
+      >
+        <p v-html="item.attributes.content"></p>
+        <time v-bind:datetime="item.attributes.time"
+          >{{item.attributes.time}}</time
+        >
+        <span class="equipment"></span>
+      </section>
+      <div class="load-ctn">
+        <button class="load-btn" v-on:click="loadMore" v-if="contents" v-cloak>
+          再来亿点
+        </button>
+        <p class="tip" v-else>Loading...</p>
+      </div>
+
+    </main>
+    <footer>
+      <p class="center-text">
+        <b>无人问津 👉<a href="https://wulonglin.github.io/aboutme/" target="_blank">wulonglin</a></b>
+        <!-- <a href="https://wulonglin.github.io/aboutme/" target="_blank">博客</a> -->
+    </footer>
+  </body>
+  <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
+  <script type="text/javascript">
+    var { Query } = AV;
+    AV.init({
+      appId: "TMlivTwOsjmekQF3uNizp2LV-MdYXbMMI",
+      appKey: "YahHdDuixi6twrqdGV6NLw1n",
+      serverURLs: "https://tmlivtwo.api.lncldglobal.com",
+    });
+    //设定存储数据的 className
+    var query = new AV.Query("content");
+
+    var app = new Vue({
+      el: "#app",
+      data: {
+        page: 0,
+        count: 0,
+        contents: [],
+      },
+      methods: {
+        loadMore: function (event) {
+          getData(++this.page);
+        },
+      },
+    });
+
+    //识别 URL 链接
+    function urlToLink(str) {
+      var re = /(http|ftp|https):\/\/[\w-]+(.[\w-]+)+([\w-.,@?^=%&:/~+#]*[\w-\@?^=%&/~+#])?/g;
+
+      str = str.replace(re, function (website) {
+        return (
+          "<a href='" +
+          website +
+          "' target='_blank'> <i class='iconfont icon-lianjie-copy'></i>链接 </a>"
+        );
+      });
+      return str;
+    }
+
+    //获取数据
+    function getData(page = 0) {
+      query
+        .descending("createdAt")
+        .skip(page * 20)
+        .limit(20)
+        .find()
+        .then(
+          function (results) {
+            if (results.length == 0) {
+              alert("真的一点点也没有了");
+            } else {
+              let resC = results;
+              reqData = false;
+              resC.forEach((i) => {
+                let dateTmp = new Date(i.createdAt);
+                i.attributes.time = `${dateTmp.getFullYear()}-${
+                  dateTmp.getMonth() + 1 < 10
+                    ? "0" + (dateTmp.getMonth() + 1)
+                    : dateTmp.getMonth() + 1
+                }-${
+                  dateTmp.getDate() + 1 < 10
+                    ? "0" + dateTmp.getDate()
+                    : dateTmp.getDate()
+                } ${
+                  dateTmp.getHours() + 1 <= 10
+                    ? "0" + dateTmp.getHours()
+                    : dateTmp.getHours()
+                }:${
+                  dateTmp.getMinutes() + 1 <= 10
+                    ? "0" + dateTmp.getMinutes()
+                    : dateTmp.getMinutes()
+                }`;
+                i.attributes.content =
+                  "<span>" + urlToLink(i.attributes.content) + "</span>";
+                app.contents.push(i);
+              });
+            }
+          },
+          function (error) {}
+        );
+    }
+
+    getData(0);
+
+    //计数
+    query.count().then(
+      function (count) {
+        app.count = count;
+      },
+      function (error) {}
+    );
+  </script>
+  <style type="text/css">
+    <!-- @font-face {
+      font-family: coca;
+      src: url("font/Coca-ColaCareFontKaiTi.TTF");
+    } -->
+
+    @media (prefers-color-scheme: dark) {
+      /* 夜间模式 */
+      body {
+        background-color: black;
+        color: white;
+      }
+
+      body .item {
+        background-color: rgb(21, 32, 43);
+        color: #ccc;
+      }
+
+      body time {
+        color: #aaa;
+      }
+
+      h1 {
+        color: #ffffff;
+        display: inline;
+      }
+
+      aside {
+        color: #ccc;
+      }
+
+      body .load-btn {
+        background-color: #000;
+        color: #ddd;
+      }
+
+      body .load-btn:hover {
+        background: #0a84ff;
+        color: #fff;
+      }
+
+      .type-0 {
+        border-top-color: #00adef !important;
+      }
+
+      .type-1 {
+        border-top-color: #9ea1aa !important;
+      }
+      ef .type-2 {
+        border-top-color: #32de84 !important;
+      }
+    }
+
+    [v-cloak] {
+      display: none;
+    }
+
+    body,
+    <!-- button {
+      font-family: coca, serif;
+    } -->
+
+    aside {
+      font-weight: 300;
+      font-style: normal;
+      line-height: 1.8rem;
+    }
+
+    #app,
+    header,
+    footer {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-weight: 900;
+    }
+
+    footer {
+      font-size: 0.8rem;
+      clear: both;
+    }
+
+    .tip {
+      color: #999;
+    }
+
+    .item {
+      font-weight: 300;
+      font-style: normal;
+      line-height: 1.8rem;
+      background: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+      margin-top: 20px;
+      border-top: 6px solid;
+      text-align: justify;
+      box-shadow: 0em 4em 6em -2em rgba(0, 0, 0, 0.5),
+        1em 2em 3.5em -2.5em rgba(0, 0, 0, 0.5);
+    }
+
+    .item a {
+      text-decoration: none;
+      color: #5dafd5;
+    }
+
+    time {
+      font-weight: 200;
+      color: #bbb;
+    }
+
+    .center-text {
+      font-size: 20px;
+      margin: 15px auto;
+    }
+
+    .center-text a {
+      color: #0a84ff;
+      text-decoration: none;
+    }
+
+    .load-ctn {
+      width: 100%;
+    }
+
+    .load-btn {
+      border: 2px solid #666;
+      outline: none;
+      font-size: 20px;
+      border-radius: 5px;
+      margin: 15px auto;
+      color: #666;
+      line-height: 30px;
+      float: left;
+      background: #fff;
+    }
+
+    .load-btn:hover:active {
+      background: #666;
+      color: #fff;
+    }
+
+    .type-0 {
+      border-top-color: #c12211;
+    }
+
+    .type-0 .equipment::after {
+      float: right;
+      content: "Windows💻";
+      font-size: 15px;
+    }
+
+    .type-1 {
+      border-top-color: #f4d76f;
+    }
+
+    .type-1 .equipment::after {
+      float: right;
+      content: "iPhone 13mini📱";
+      font-size: 15px;
+    }
+
+    .type-2 {
+      border-top-color: #444444;
+    }
+
+    .type-2 .equipment::after {
+      float: right;
+      content: "iPad📱";
+      font-size: 15px;
+    }
+
+    .type-3 {
+      border-top-color: #413b3b;
+    }
+
+    .type-3 .equipment::after {
+      float: right;
+      content: "Macbook💻";
+      font-size: 15px;
+    }
+
+    .logo__cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1.5rem;
+      margin-top: 8px;
+      background: #0a84ff;
+      margin-left: 5px;
+      border-radius: 1px;
+      animation: cursor 1s infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .logo__cursor {
+        animation: none;
+      }
+    }
+
+    @keyframes cursor {
+      0% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-weight: 700;
+      font-display: auto;
+      height: 57.6px;
+    }
+  </style>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开发者支持 - 上岛记</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: #000;
+        }
+        
+        h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 20px 0 10px;
+            color: #000;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #444;
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #444;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .contact-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .email-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        
+        .version-info {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #000;
+            text-decoration: none;
+        }
+        
+        .lang-switch {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            color: #666;
+            margin-left: 10px;
+        }
+        
+        .lang-btn.active {
+            color: #000;
+            font-weight: 600;
+        }
+        
+        .lang-zh,
+        .lang-en {
+            display: none;
+        }
+        
+        .lang-zh.active,
+        .lang-en.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link lang-zh active">← 返回</a>
+    <a href="index.html" class="back-link lang-en">← Back</a>
+    
+    <div class="lang-switch">
+        <button id="btn-zh" class="lang-btn active">中文</button>
+        <button id="btn-en" class="lang-btn">English</button>
+    </div>
+    
+    <header>
+        <h1 class="lang-zh active">开发者支持</h1>
+        <h1 class="lang-en">Developer Support</h1>
+        <div class="version-info lang-zh active">最新版本：1.0.0</div>
+        <div class="version-info lang-en">Latest Version: 1.0.0</div>
+    </header>
+    
+    <main>
+        <section>
+            <h2 class="lang-zh active">应用介绍</h2>
+            <h2 class="lang-en">App Introduction</h2>
+            <p class="lang-zh active">上岛记 是一款专为 iOS 和 watchOS 平台设计的实用工具应用，让取餐码、排队号、快递柜码等重要信息快速显示在 iPhone 灵动岛和 Apple Watch 上，方便用户随时查看，解放双手。</p>
+            <p class="lang-en">Pin2Island is a practical utility app designed for iOS and watchOS platforms, allowing pickup codes, queue numbers, locker codes and other important information to be quickly displayed on iPhone Dynamic Island and Apple Watch, making it easy for users to check anytime with hands free.</p>
+            
+            <h3 class="lang-zh active">核心特点</h3>
+            <h3 class="lang-en">Core Features</h3>
+            <ul>
+                <li class="lang-zh active"><strong>多场景支持</strong>：覆盖取餐码、排队号、快递柜码等多种生活场景需求</li>
+                <li class="lang-en"><strong>Multi-scenario Support</strong>: Covers various life scenarios including pickup codes, queue numbers, and locker codes</li>
+                <li class="lang-zh active"><strong>纯本地运行</strong>：所有功能在设备本地执行，无需网络连接，保护用户隐私</li>
+                <li class="lang-en"><strong>Local Operation Only</strong>: All functions run locally on the device, no network connection required, protecting user privacy</li>
+                <li class="lang-zh active"><strong>Apple Watch 深度集成</strong>：通过 WCSession 实现 iPhone 与 Apple Watch 的无缝数据同步</li>
+                <li class="lang-en"><strong>Deep Apple Watch Integration</strong>: Seamless data synchronization between iPhone and Apple Watch via WCSession</li>
+                <li class="lang-zh active"><strong>智能识别技术</strong>：采用 CoreML 机器学习模型，实现高效准确的文本和图像识别</li>
+                <li class="lang-en"><strong>Intelligent Recognition</strong>: Utilizes CoreML machine learning models for efficient and accurate text and image recognition</li>
+                <li class="lang-zh active"><strong>低资源占用</strong>：优化的算法设计，确保应用运行流畅且省电</li>
+                <li class="lang-en"><strong>Low Resource Usage</strong>: Optimized algorithm design ensures smooth operation and battery efficiency</li>
+                <li class="lang-zh active"><strong>简洁直观界面</strong>：专注于核心功能，提供无干扰的用户体验</li>
+                <li class="lang-en"><strong>Clean and Intuitive Interface</strong>: Focused on core functions, providing a distraction-free user experience</li>
+                <li class="lang-zh active"><strong>实时数据同步</strong>：设备间数据实时更新，确保信息一致性</li>
+                <li class="lang-en"><strong>Real-time Data Sync</strong>: Real-time data updates between devices, ensuring information consistency</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2 class="lang-zh active">常见问题</h2>
+            <h2 class="lang-en">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3 class="lang-zh active">上岛记 是否需要网络连接？</h3>
+                <h3 class="lang-en">Does Pin2Island require internet connection?</h3>
+                <p class="lang-zh active">不需要。上岛记 是一款纯本地应用，所有功能均在设备本地运行，不依赖网络连接。</p>
+                <p class="lang-en">No. Pin2Island is a local-only app. All functions run locally on the device without requiring network connection.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="lang-zh active">应用如何在 iPhone 和 Apple Watch 之间同步数据？</h3>
+                <h3 class="lang-en">How does the app sync data between iPhone and Apple Watch?</h3>
+                <p class="lang-zh active">我们使用 Apple 提供的 App Groups 和 WCSession 技术进行设备间的本地数据同步，确保数据安全且无需云服务。</p>
+                <p class="lang-en">We use Apple's App Groups and WCSession technologies for local data synchronization between devices, ensuring data security without requiring cloud services.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="lang-zh active">应用会收集我的个人信息吗？</h3>
+                <h3 class="lang-en">Does the app collect my personal information?</h3>
+                <p class="lang-zh active">不会。上岛记 严格保护用户隐私，不收集、不上传任何用户数据或个人信息。</p>
+                <p class="lang-en">No. Pin2Island strictly protects user privacy and does not collect or upload any user data or personal information.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="lang-zh active">如何将应用更新到最新版本？</h3>
+                <h3 class="lang-en">How to update the app to the latest version?</h3>
+                <p class="lang-zh active">您可以通过 App Store 的自动更新功能或手动检查更新，获取 上岛记 的最新版本。</p>
+                <p class="lang-en">You can get the latest version of Pin2Island through App Store's automatic update feature or by manually checking for updates.</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="lang-zh active">使用指南</h2>
+            <h2 class="lang-en">Usage Guide</h2>
+            
+            <h3 class="lang-zh active">基本操作</h3>
+            <h3 class="lang-en">Basic Operations</h3>
+            <ul>
+                <li class="lang-zh active">打开应用后，您可以直接访问主要功能</li>
+                <li class="lang-en">After opening the app, you can directly access the main functions</li>
+                <li class="lang-zh active">在设置页面中，您可以自定义应用的部分功能</li>
+                <li class="lang-en">In the settings page, you can customize some functions of the app</li>
+                <li class="lang-zh active">在 Apple Watch 上安装配套应用后，可以直接查看同步的数据</li>
+                <li class="lang-en">After installing the companion app on Apple Watch, you can directly view the synchronized data</li>
+            </ul>
+            
+            <h3 class="lang-zh active">权限说明</h3>
+            <h3 class="lang-en">Permissions</h3>
+            <ul>
+                <li class="lang-zh active">截屏权限：应用仅使用截屏权限，且截屏是通过系统级的快捷指令app实现</li>
+                <li class="lang-en">Screenshot Permission: The app only uses screenshot permission, and screenshots are implemented through the system-level Shortcuts app</li>
+                <li class="lang-zh active">通知权限：用于提醒用户重要信息，您可以随时在系统设置中关闭</li>
+                <li class="lang-en">Notification permission: Used to remind users of important information, which you can turn off in system settings at any time</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2 class="lang-zh active">故障排除</h2>
+            <h2 class="lang-en">Troubleshooting</h2>
+            <ul>
+                <li class="lang-zh active">如果应用出现卡顿，请尝试关闭应用后重新启动</li>
+                <li class="lang-en">If the app freezes, please try closing it and restarting</li>
+                <li class="lang-zh active">iPhone 和 Apple Watch 数据不同步时，请确保两台设备已配对并连接</li>
+                <li class="lang-en">When data is not syncing between iPhone and Apple Watch, please ensure both devices are paired and connected</li>
+                <li class="lang-zh active">对于其他问题，请参考下方的联系方式获取支持</li>
+                <li class="lang-en">For other issues, please refer to the contact information below for support</li>
+            </ul>
+        </section>
+        
+        <div class="contact-section">
+            <h2 class="lang-zh active">获取支持</h2>
+            <h2 class="lang-en">Get Support</h2>
+            <p class="lang-zh active">如果您在使用 上岛记 过程中遇到任何问题，或有任何建议和反馈，请随时联系我们的开发团队。</p>
+            <p class="lang-en">If you encounter any problems while using Pin2Island, or have any suggestions or feedback, please feel free to contact our development team.</p>
+            <a href="mailto:support@pin2island.app" class="email-link lang-zh active">联系我们</a>
+            <a href="mailto:support@pin2island.app" class="email-link lang-en">Contact Us</a>
+            <p class="lang-zh active" style="margin-top: 15px;">我们通常会在 1-2 个工作日内回复您的邮件。</p>
+            <p class="lang-en" style="margin-top: 15px;">We typically respond to emails within 1-2 business days.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <p class="lang-zh active">© <span id="current-year"></span> 上岛记</p>
+        <p class="lang-en">© <span id="current-year"></span> Pin2Island</p>
+    </footer>
+    
+    <script>
+        // 设置当前年份
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // 语言切换功能
+        const btnZh = document.getElementById('btn-zh');
+        const btnEn = document.getElementById('btn-en');
+        
+        btnZh.addEventListener('click', function() {
+            setLanguage('zh');
+        });
+        
+        btnEn.addEventListener('click', function() {
+            setLanguage('en');
+        });
+        
+        function setLanguage(lang) {
+            // 更新按钮状态
+            btnZh.classList.toggle('active', lang === 'zh');
+            btnEn.classList.toggle('active', lang === 'en');
+            
+            // 更新内容显示
+            document.querySelectorAll('.lang-zh, .lang-en').forEach(el => {
+                el.classList.toggle('active', el.classList.contains(`lang-${lang}`));
+            });
+            
+            // 更新HTML语言属性
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+            
+            // 更新页面标题
+            document.title = lang === 'zh' ? '开发者支持 - 上岛记' : 'Developer Support - Pin2Island';
+        }
+        
+        // 检测浏览器语言偏好
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang && userLang.startsWith('en')) {
+            setLanguage('en');
+        }
+    </script>
+</body>
+</html>

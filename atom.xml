@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://wulonglin.github.io</id>
+    <title>wulonglin de blog</title>
+    <updated>2025-12-05T11:17:13.869Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://wulonglin.github.io"/>
+    <link rel="self" href="https://wulonglin.github.io/atom.xml"/>
+    <subtitle>無人問津😶</subtitle>
+    <logo>https://wulonglin.github.io/images/avatar.png</logo>
+    <icon>https://wulonglin.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, wulonglin de blog</rights>
+</feed>
